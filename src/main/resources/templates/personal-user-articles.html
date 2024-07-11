@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL USERS</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/main/create}" method="get">
+        <input type="submit" value="new article"/>
+    </form>
+</div>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
+    <form th:action="@{/users/}" method="get">
+        <input type="submit" value="See all Users"/>
+    </form>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+<!--        <th>ARTICLES COUNT</th>-->
+    </tr>
+    </thead>
+    <tbody>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.getUsername}"></td>
+<!--        <td th:text="${user.articles.size()}"></td>-->
+    </tbody>
+</table>
+
+<br><br>
+<h1>YOUR ARTICLES</h1>
+<br><br>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Header</th>
+        <th>Body</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article : ${articles}">
+        <td th:text="${article.id}"></td>
+        <td th:text="${article.header}"></td>
+        <td th:text="${article.body}"></td>
+        <td>
+            <form th:action="@{'../main/delete/' + ${article.id}}" method="post">
+                <input type="submit" value="Delete article"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

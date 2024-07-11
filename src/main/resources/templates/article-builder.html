@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Форма для написания статьи</title>
+</head>
+<body>
+<div th:text="${id}"></div>
+<form th:action="@{'../main/add?userId=' + ${userId}}" method="post">
+    <label for="header">Заголовок статьи:</label>
+    <input type="text" id="header" name="header">
+
+    <br><br>
+
+    <label for="body">Текст статьи:</label>
+    <textarea id="body" name="body"></textarea>
+
+    <br><br>
+
+    <input type="submit" value="Опубликовать статью">
+</form>
+</body>
+</html>
