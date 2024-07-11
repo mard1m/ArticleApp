@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL USERS</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/main/create}" method="get">
+        <input type="submit" value="new article"/>
+    </form>
+</div>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
+    <form th:action="@{/users/}" method="get">
+        <input type="submit" value="See all Users"/>
+    </form>
+</div>
+<div>
+    <form th:action="@{'/main/' + ${currentUserId}}" method="get">
+        <input type="submit" value="Your account    "/>
+    </form>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Header</th>
+        <th>Body</th>
+        <th>Author-name</th>
+        <th>Likes</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article : ${articles}">
+        <td th:text="${article.id}"></td>
+        <td th:text="${article.header}"></td>
+        <td th:text="${article.body}"></td>
+        <td th:text="${article.author.getUsername}"></td>
+        <td th:text="${article.getLikes().size()}"></td>
+        <td>
+            <form th:action="@{'../main/like/' + ${article.id}}" method="post">
+                <input type="submit" value="Like"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
