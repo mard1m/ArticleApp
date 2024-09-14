@@ -1,7 +1,42 @@
 # ArticleApp
 
 # Installation instructions
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prerequisites
+1. Java: Install Java Development Kit (JDK) 17 or higher.
+- [Download JDK](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- To check if Java is installed, run:
+  ### `java -version`
+
+2. Maven: Install Apache Maven for building the Spring Boot project.
+- [Download Maven](https://maven.apache.org/download.cgi)
+- Verify Maven installation:
+  ### `mvn -version`
+
+ 3. PostgreSQL: Install PostgreSQL and set up a database for the application.
+- [Download PostgreSQL](https://www.postgresql.org/download/)
+- Create a database for the project:
+  ### `CREATE DATABASE article_platform;`
+  
+4. Node.js: Install Node.js and npm (Node Package Manager)
+- [Download Node.js](https://nodejs.org/en)
+- Verify Node installation:
+  ### `node -v`
+  ### `npm -v`
+
+## Backend and Frontend Installations
+1. Clone the repository:
+   ### `git clone https://github.com/mard1m/ArticleApp.git`
+2. Configure pplication.properties
+- Navigate to src/main/resources/application.properties and configure the database settings: 
+    ### `spring.datasource.url=jdbc:postgresql://localhost:5432/article_platform spring.datasource.username=app_user                   spring.datasource.password=yourpassword`
+3. Build and run Spring Boot application
+    ### `mvn clean install`
+    ### `mvn spring-boot:run`
+4. Install dependecies
+    ### `npm install`
+5. Start the React development server
+    ### `npm start`
+- The frontend will be available at http://localhost:3000.
 
 ## Available Scripts
 
